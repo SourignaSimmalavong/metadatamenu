@@ -1,3 +1,4 @@
+import MetadataMenu from "main";
 import { Notice, TFile } from "obsidian";
 
 class FileClassQuery {
@@ -7,7 +8,7 @@ class FileClassQuery {
         public id: string = "",
         public query: string = "",
         public fileClassName: string = ""
-    ) { };
+    ) { }
 
     //@ts-ignore
     public getResults(api: DataviewPlugin["api"]): any {
@@ -17,11 +18,11 @@ class FileClassQuery {
             new Notice(` for <${this.name}>. Check your settings`);
             return []
         }
-    };
+    }
 
     public matchFile(file: TFile): boolean {
 
-        const dataview = app.plugins.plugins.dataview
+        const dataview = MetadataMenu.instance.app.plugins.plugins.dataview
         //@ts-ignore
         if (this.query && dataview?.settings.enableDataviewJs && dataview?.settings.enableInlineDataviewJs) {
             try {
@@ -40,7 +41,7 @@ class FileClassQuery {
         target.name = source.name;
         target.query = source.query;
         target.fileClassName = source.fileClassName
-    };
-};
+    }
+}
 
 export default FileClassQuery;

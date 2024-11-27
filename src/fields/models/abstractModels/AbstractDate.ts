@@ -257,7 +257,7 @@ export function valueModal(managedField: IFieldManager<Target, Options>, plugin:
                 this.value = newValue
             }
             if (isSingleTargeted(this.managedField)) this.buildShiftBtn(container)
-        };
+        }
 
         public buildShiftBtn(container: HTMLDivElement) {
             this.shiftFromTodayBtn = new ButtonComponent(container)
@@ -483,7 +483,7 @@ export function actions(plugin: MetadataMenu, field: IField<Options>, file: TFil
     } else if (isFieldActions(location)) {
         location.addOption(`field_${field.id}_shift`, "skip-forward", shiftDateAction, `Shift ${name} ahead`);
         location.addOption(`field_${field.id}_update`, dateIconName, dateModalAction, `Set ${name}'s date`);
-    };
+    }
 }
 
 export function createDvField(

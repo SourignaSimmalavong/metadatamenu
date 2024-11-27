@@ -24,6 +24,7 @@
 		"builtin-modules": "3.3.0",
 		"esbuild": "0.17.3",
 		"obsidian": "latest",
+		"obsidian-dataview": "^0.5.67",
 		"onchange": "^7.1.0",
 		"sass": "^1.64.1",
 		"ts-node-dev": "^2.0.0",

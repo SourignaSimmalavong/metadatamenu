@@ -22,6 +22,12 @@ import { FileClassCodeBlockListManager } from 'src/components/FileClassCodeBlock
 import { Field, buildEmptyField } from 'src/fields/Field';
 import { TestRunner } from 'src/testing/runner';
 export default class MetadataMenu extends Plugin {
+	// Workaround:
+	// Since update from obsidian 1.4.x to 1.7.7, app is not exposed anymore.
+	// This static avoids passing a `plugin` or `app` parameter to a lot of functions of the entire plugin.
+	// TODO: This might need some architectural reworking to avoid such global.
+	static instance: MetadataMenu;
+
 	public api: IMetadataMenuApi;
 	public settings: MetadataMenuSettings;
 	public presetFields: Array<Field> = [];

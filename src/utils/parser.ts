@@ -1,3 +1,4 @@
+import MetadataMenu from "main";
 import { TFile, moment } from "obsidian";
 
 export const fieldComponents = ['inQuote', 'inList', 'preSpacer', 'startStyle', 'attribute', 'endStyle', 'beforeSeparatorSpacer', 'afterSeparatorSpacer', 'values']
@@ -15,7 +16,7 @@ export const LinkRegex = new RegExp(`\\[\\[(?<target>[^\\|]*)(\\|)?(?<alias>.*)?
 export const getLink = (linkText: string, source?: TFile): { path: string, alias?: string } | undefined => {
     const fR = `${linkText}`?.match(LinkRegex);
     if (fR?.groups?.target) {
-        const path = app.metadataCache.getFirstLinkpathDest(fR?.groups?.target, source?.path || fR?.groups?.target)?.path
+        const path = MetadataMenu.instance.app.metadataCache.getFirstLinkpathDest(fR?.groups?.target, source?.path || fR?.groups?.target)?.path
         if (path) {
             return {
                 path: path,

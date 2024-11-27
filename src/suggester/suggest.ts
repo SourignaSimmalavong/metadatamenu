@@ -2,6 +2,7 @@
 
 import { ISuggestOwner, Scope } from "obsidian";
 import { createPopper, Instance as PopperInstance } from "@popperjs/core";
+import MetadataMenu from "main";
 
 const wrapAround = (value: number, size: number): number => {
     return ((value % size) + size) % size;
@@ -147,7 +148,7 @@ export abstract class TextInputSuggest<T> implements ISuggestOwner<T> {
         if (suggestions.length > 0) {
             this.suggest.setSuggestions(suggestions);
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            this.open((<any>app).dom.appContainerEl, this.inputEl);
+            this.open((<any>MetadataMenu.instance.app).dom.appContainerEl, this.inputEl);
         } else {
             this.close();
         }
@@ -155,7 +156,7 @@ export abstract class TextInputSuggest<T> implements ISuggestOwner<T> {
 
     open(container: HTMLElement, inputEl: HTMLElement): void {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (<any>app).keymap.pushScope(this.scope);
+        (<any>MetadataMenu.instance.app).keymap.pushScope(this.scope);
 
         container.appendChild(this.suggestEl);
         this.popper = createPopper(inputEl, this.suggestEl, {
@@ -185,7 +186,7 @@ export abstract class TextInputSuggest<T> implements ISuggestOwner<T> {
 
     close(): void {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (<any>app).keymap.popScope(this.scope);
+        (<any>MetadataMenu.instance.app).keymap.popScope(this.scope);
 
         this.suggest.setSuggestions([]);
         if (this.popper) this.popper.destroy();

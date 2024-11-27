@@ -269,7 +269,7 @@ export async function updateCanvas(
 
         //clean removed files by putting their related canvas fields to null since they don't have anymore connections
         previousFilesPaths.filter(f => !currentFilesPaths.includes(f)).forEach(async filePath => {
-            const targetFile = app.vault.getAbstractFileByPath(filePath)
+            const targetFile = MetadataMenu.instance.app.vault.getAbstractFileByPath(filePath)
             if (targetFile && targetFile instanceof TFile) {
                 const payload: IndexedFieldsPayload = []
                 // canvas fields

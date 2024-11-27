@@ -80,7 +80,7 @@ export function settingsModal(Base: Constructor<ISettingsModal<DefaultedOptions>
                 } else {
                     container.removeClass("active");
                     setIcon(container, "plus");
-                };
+                }
             }
 
             standardColors.forEach(color => {
@@ -98,7 +98,7 @@ export function settingsModal(Base: Constructor<ISettingsModal<DefaultedOptions>
                         colors.remove(color)
                     } else {
                         colors.push(color)
-                    };
+                    }
                     toggleStandardColorButton(colorContainer, color)
 
                 }
