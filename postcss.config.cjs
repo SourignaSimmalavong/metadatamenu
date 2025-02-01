@@ -11,7 +11,11 @@ module.exports = {
                 './src/**/*.tsx',
                 './test-vault-mdm/**/*.md',  // Include markdown if relevant
             ],
-            safelist: [],  // Add any classes to prevent from purging
+            safelist: [
+                'table-view-table',
+                'table-view-thead',
+                'table-view-tr-header'  // Safelist your classes
+            ],  // Add any classes to prevent from purging
             defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
         }),
     ],

@@ -237,3 +237,9 @@
 .metadata-menu.fileclass-view .options .search * {
     height: 100%;
 }
+
+
+/* Add an opaque background to the table header */
+.fileclass-view-content .view-container .fv-table .table-view-table .table-view-thead .table-view-tr-header th {
+    background-color: var(--background-secondary);
+}
